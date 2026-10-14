@@ -250,7 +250,7 @@ body[data-source-service="true"] #main-content .reference-shell .dock button{
   padding: 11px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
 }
 body[data-source-service="true"] #main-content .reference-shell .dock button:disabled{ background: #c9cdd4; cursor: default; }
-@media (max-width: 1100px){body[data-source-service="true"] #main-content .reference-shell .layout{ grid-template-columns: 0 200px minmax(240px, 1fr) 340px; }
+@media (max-width: 1100px){body[data-source-service="true"] #main-content .reference-shell .layout{ grid-template-columns: 200px minmax(0, 1fr) 340px; }
 body[data-source-service="true"] #main-content .reference-shell .native-rail{ display: none; }
 }
 
@@ -403,7 +403,7 @@ body[data-source-service="true"] #main-content .reference-shell details.sidebar-
 @media(max-width:760px) { body[data-source-service="true"] #main-content .reference-shell .titlebar .controls { display:none; } }
 
 @media(min-width:761px) and (max-width:850px) {
- body[data-source-service="true"] #main-content .reference-shell .layout { grid-template-columns:0 180px minmax(0,1fr) 320px; }
+ body[data-source-service="true"] #main-content .reference-shell .layout { grid-template-columns:180px minmax(0,1fr) 320px; }
  body[data-source-service="true"] #main-content .reference-shell .chat-actions .hint { max-width:70%;font-size:11px; }
 }
 
