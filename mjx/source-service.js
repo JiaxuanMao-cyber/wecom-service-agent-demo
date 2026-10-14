@@ -96,7 +96,7 @@
     const view=root.BusinessProfitWalkthrough;
     const title=s.round===0?'投入与剩余市值为何不同':'近期赚了，为什么整体还亏';
     const status=s.closed?'本轮已结束':view.ready(s)?s.sent[s.round]?'已回复':'可回复':'待核对';
-    const check=`<p class="sidebar-verdict">${esc(view.verdict(c,s))}</p><p class="profit-scope">均衡精选A · 人民币 · 净值截至9月28日</p>${view.facts(c,s,esc)}`;
+    const check=`${root.BusinessAnswerView.verdictHtml(view.verdict(c,s),esc)}<p class="profit-scope">均衡精选A · 人民币 · 净值截至9月28日</p>${view.facts(c,s,esc)}`;
     return root.BusinessAnswerView.shell(c,s,esc,{title,status,check,reply:view.answerHtml(c,s,esc),process:view.process(c,s,esc),kind:'calculation'});
   }
   function showProfitDialog(kind,c,s,index) {

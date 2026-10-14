@@ -81,3 +81,34 @@ dialog.profit-dialog { width:min(900px,calc(100vw - 28px)); }
 
 /* 外壳不参与焦点滚动，长内容只在核对单正文内滚动。 */
 body[data-source-service="true"] .wecom-layout .assistant-panel { overflow:clip; }
+
+/* 样例借鉴：结论卡、缺口清单与就地明细；未知项不使用收益红绿。 */
+.sidebar-verdict-box { background:#f0f3f7;border-radius:6px;padding:10px 11px;margin:0 0 11px; }
+.sidebar-verdict-box>span { display:block;color:#718096;font-size:10px;margin-bottom:4px; }
+.sidebar-verdict-box .sidebar-verdict { margin:0;font-size:13px;line-height:1.75; }
+.sidebar-sections .sidebar-status { padding:3px 7px;border-radius:4px;font-size:11px; }
+.sidebar-sections .status-ready { background:#edf3ff;color:#285cc4; }
+.sidebar-sections .status-pending { background:#fff4e3;color:#8a5b14; }
+.sidebar-sections .status-recorded { background:#eff2f6;color:#657185; }
+.sidebar-check .sidebar-contrast { display:flex;flex-direction:column;gap:2px;background:#fff8ea;border:1px solid #ebd4a9;border-radius:5px;padding:8px 10px;font-size:12px; }
+.sidebar-check .sidebar-contrast b { color:#8a5b14; }
+.sidebar-check .sidebar-missing { border:0;background:transparent;padding:0;margin:12px 0; }
+.sidebar-missing h4,.sidebar-detail-title { margin:10px 0 6px;font-size:12px;color:#263b54; }
+.sidebar-check .sidebar-missing .agent-fact-row dd { color:#7c602e;font-weight:500; }
+.sidebar-check .sidebar-missing .agent-fact-row,.sidebar-check .sidebar-known .agent-fact-row { border-bottom:1px solid #e9edf3;padding:7px 0; }
+.sidebar-check .sidebar-known .agent-section-heading h3 { color:#334b66;font-size:12px;font-weight:500; }
+.sidebar-reply .sidebar-copy-label { display:block;font-size:10px;color:#718096;margin-bottom:6px; }
+.sidebar-reply .sidebar-next { display:flex;align-items:baseline;gap:8px;padding-top:10px;margin:0;font-size:11px; }
+.sidebar-reply .sidebar-next p { margin:0; }
+.sidebar-math-note { color:#69778a;font-size:11px;line-height:1.8;margin:8px 0; }
+.sidebar-inline-ledger { overscroll-behavior-x:contain; }
+.sidebar-inline-ledger table { min-width:380px; }
+.sidebar-inline-ledger th,.sidebar-inline-ledger td { text-align:right;white-space:nowrap; }
+.sidebar-inline-ledger th:first-child,.sidebar-inline-ledger td:first-child { text-align:left; }
+.sidebar-inline-ledger .plain-button { padding:0;font-size:11px;white-space:nowrap; }
+.sidebar-sections .sidebar-reply .agent-reply-text { font-size:13px!important; }
+.sidebar-section-title h3 { font-size:13px; }
+.sidebar-check .business-facts dd { font-size:12px; }
+
+body[data-source-service="true"] .wecom-layout .sidebar-status.status-pending { background:#fff4e3!important;color:#8a5b14!important; }
+body[data-source-service="true"] .wecom-layout .sidebar-status.status-ready { background:#edf3ff!important;color:#285cc4!important; }

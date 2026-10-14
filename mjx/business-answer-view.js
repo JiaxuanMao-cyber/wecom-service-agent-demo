@@ -15,8 +15,9 @@
  };
  const technical=/\b(?:MCP|Skill|RPC|JSON|API)\b|SKILL_|delegateNo|fundCode|source_id|接口|字段/;
  function business(value){const text=String(value??'—');return technical.test(text)?'—':text;}
- function pairs(rows,esc){return `<dl class="agent-fact-list business-facts">${rows.filter(row=>row.label&&row.value!=null&&String(row.value).trim()&&row.value!=='—'&&!technical.test(String(row.label))&&!technical.test(String(row.value))).map(row=>`<div class="agent-fact-row"><dt>${esc(row.label)}</dt><dd>${esc(row.value??'—')}</dd></div>`).join('')}</dl>`;}
- const detail=(title,html)=>`<details class="technical business-detail"><summary>${title}</summary>${html}</details>`;
+ function usable(rows){return (rows||[]).filter(row=>row.label&&row.value!=null&&String(row.value).trim()&&row.value!=='—'&&!technical.test(String(row.label))&&!technical.test(String(row.value)));}
+ function pairs(rows,esc){const selected=usable(rows);return selected.length?`<dl class="agent-fact-list business-facts">${selected.map(row=>`<div class="agent-fact-row"><dt>${esc(row.label)}</dt><dd>${esc(row.value)}</dd></div>`).join('')}</dl>`:'';}
+ const detail=(title,html)=>html?`<details class="technical business-detail"><summary>${title}</summary>${html}</details>`:'';
  function profile(c){return profiles[c.id]||{kind:'status',labels:[],link:'查看业务记录',logic:'按本轮问题核对业务范围和结论。',copy:[]};}
  function short(c,index){return profile(c).copy[index];}
  function replyAllowed(c,index){const text=short(c,index)||c.rounds[index]?.advisors.map(m=>m.text).join('\n')||'';return !!text.trim()&&!technical.test(text);}
@@ -50,16 +51,28 @@
   'fee-deduction':{verdict:['费用条款和本期窗口已查到，当前无名额；下一期安排未知。','给定单批条件测算为2,000元，计算条件与公式已对齐。'],heard:[['业绩报酬条款','开放安排','现在能否购买']],contrast:'给定条件的测算不等于本次实际扣费；实扣另看计提记录。'}
  };
  function audit(c,s){const gap=missing(c,s),meta=checks[c.id]||{};return {gap,verdict:meta.verdict?.[s.round]||'',heard:meta.heard?.[s.round]||[],contrast:meta.contrast||'',next:meta.next?.[s.round]||'',status:s.closed?'本轮已结束':gap?'待核对':s.sent[s.round]?'已回复':replyAllowed(c,s.round)?'可回复':'待核对'};}
+ // 以下为展示侧的已知缺口标签，不向查询结果或生产合同增加字段。
+ const pending={
+  multi:[[['另一只起购门槛','尚未取得'],['同口径比较资料','尚未取得']],[['完整资料发送结果','尚未确认']]],
+  'active-open':[[['个人排队与分配结果','尚未核实'],['下一期开放安排','尚未提供']]],
+  'active-product':[[['调整原因','公告未说明'],['本人其他交易条件','尚未核对']],[['本人其他交易条件','尚未核对']]],
+  'redemption-arrival':[[['兴业卡实际入账','尚未核实'],['未到账原因','尚未核实']],[['兴业卡实际入账','尚未核实'],['未到账原因','尚未核实']]],
+  'fee-deduction':[[['下一期开放日期','尚未提供']]]
+ };
+ function pendingRows(c,s){return missing(c,s)?(pending[c.id]?.[s.round]||[['待核对事项',missing(c,s)]]).map(([label,value])=>({label,value})):[];}
+ function verdictHtml(text,esc){return text?`<div class="sidebar-verdict-box"><span>本题结论</span><p class="sidebar-verdict">${esc(text)}</p></div>`:'';}
  function shell(c,s,esc,{title,status,check,reply,process:steps,next='',kind='status'}){
-  return `<div class="profit-assistant business-answer sidebar-sections" data-answer-kind="${kind}"><div class="item-heading"><h2>${esc(title||c.title)}</h2><span class="badge blue sidebar-status">${esc(status)}</span></div><section class="sidebar-check" aria-label="① 查清"><div class="sidebar-section-title"><h3>① 查清</h3><span>给顾问核对</span></div>${check}</section><section class="sidebar-reply" aria-label="② 答复"><div class="sidebar-section-title"><h3>② 答复</h3><span>${s.sent[s.round]?'本轮已发送':'给客户这样说'}</span></div>${reply}</section>${next?`<section class="sidebar-next"><b>下一步</b><p>${esc(next)}</p></section>`:''}${steps||''}${s.sent[s.round]&&s.round<c.rounds.length-1?'<button class="button small wide" data-action="source-next">查看客户追问 →</button>':''}</div>`;
+  const tone=['待核对','待补问','待确认'].includes(status)?'status-pending':status==='可回复'?'status-ready':'status-recorded';
+  return `<div class="profit-assistant business-answer sidebar-sections" data-answer-kind="${kind}"><div class="item-heading"><h2>${esc(title||c.title)}</h2><span class="badge sidebar-status ${tone}">${esc(status)}</span></div><section class="sidebar-check" aria-label="① 查清"><div class="sidebar-section-title"><h3>① 查清</h3><span>给顾问核对</span></div>${check}</section><section class="sidebar-reply" aria-label="② 答复"><div class="sidebar-section-title"><h3>② 答复</h3><span>给客户这样说</span></div><span class="sidebar-copy-label">${s.sent[s.round]?'本轮已发送稿':'唯一可发送稿'}</span>${reply}${next?`<div class="sidebar-next"><b>下一步</b><p>${esc(next)}</p></div>`:''}</section>${steps||''}${s.sent[s.round]&&s.round<c.rounds.length-1?'<button class="button small wide" data-action="source-next">查看客户追问 →</button>':''}</div>`;
  }
- function calculationTable(x,esc){const r=root.SourceServiceSimulation.feeCalculation(x);const amount=n=>n.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});return `<div class="sidebar-table"><table><thead><tr><th>核算项目</th><th>金额（元）</th></tr></thead><tbody>${[['期间收益',r.gain],['门槛收益',r.threshold],['超出门槛',r.excess],['测算业绩报酬',r.fee]].map(([label,value])=>`<tr><td>${esc(label)}</td><td>${amount(value)}</td></tr>`).join('')}</tbody></table></div>`;}
+ function calculationTable(x,esc){const r=root.SourceServiceSimulation.feeCalculation(x),amount=n=>n.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});return `<h4 class="sidebar-detail-title">给定条件</h4>${pairs([{label:'参与份额',value:x.shares.toLocaleString('zh-CN')+'份'},{label:'起点单位／累计净值',value:x.startUnit.toFixed(4)+'／'+x.startAccum.toFixed(4)},{label:'期末累计净值',value:x.endAccum.toFixed(4)},{label:'计费期间',value:x.days+'天／年基准'+x.yearDays+'天'},{label:'门槛与计提比例',value:'年化'+(x.hurdle*100)+'%／超额部分'+(x.rate*100)+'%'}],esc)}<h4 class="sidebar-detail-title">费用测算明细</h4><div class="sidebar-table"><table><thead><tr><th>核算项目</th><th>金额（元）</th></tr></thead><tbody>${[['期间收益',r.gain],['门槛收益',r.threshold],['超出门槛',r.excess],['测算业绩报酬',r.fee]].map(([label,value])=>`<tr><td>${esc(label)}</td><td>${amount(value)}</td></tr>`).join('')}</tbody></table></div><p class="sidebar-math-note">${amount(r.gain)} − ${amount(r.threshold)} ＝ ${amount(r.excess)}元；超额部分按${x.rate*100}%计提，测算${amount(r.fee)}元。</p>`;}
  function render(c,s,esc,{records,calculation}){const p=profile(c),r=c.rounds[s.round],a=audit(c,s),original=s.sent[s.round]||r.advisors.map(m=>m.text).join('\n'),text=technical.test(original)?'答复还需要整理成客户能理解的业务说明。':original;
   const body=p.kind==='steps'&&s.round===0?`<div class="reply-block agent-reply-text"><ol class="business-reply-items">${text.split('\n').map(line=>`<li>${esc(line)}</li>`).join('')}</ol></div>`:`<div class="reply-block agent-reply-text">${esc(text)}</div>`;
-  const rows=primary(c,s);
-  const check=`${a.verdict?`<p class="sidebar-verdict">${esc(a.verdict)}</p>`:''}${a.heard.length?`<div class="sidebar-heard"><b>客户问了${a.heard.length}点</b><ol>${a.heard.map(t=>`<li>${esc(t)}</li>`).join('')}</ol></div>`:''}${rows.length?`<section class="profit-summary"><div class="agent-section-heading"><h3>${r.calculation?'关键数字 · 条件测算':'核对要点'}</h3></div>${pairs(rows,esc)}</section>`:''}${a.gap?`<div class="business-gap"><b>还没查到</b><p>${esc(a.gap)}</p></div>`:''}${a.contrast?`<div class="sidebar-contrast"><b>不能混为一谈</b><p>${esc(a.contrast)}</p></div>`:''}${(r.facts?.length||r.calls?.length||r.calculation)?`<details class="technical sidebar-detail"><summary>${r.calculation?'演算明细':'核对明细'}</summary>${r.calculation?calculationTable(r.calculation,esc):''}<button class="button small wide" data-action="source-business-detail">${p.link}</button></details>`:''}`;
+  const known=primary(c,s).filter(row=>!/尚未|待核|未核|待确认|未提供|未取得|未知/.test(String(row.value))),knownHtml=pairs(known,esc),gaps=pendingRows(c,s);
+  const contrast=(s.round===0||r.calculation)&&a.contrast?`<div class="sidebar-contrast"><b>核对提醒</b><p>${esc(a.contrast)}</p></div>`:'';
+  const check=`${verdictHtml(a.verdict,esc)}${a.heard.length?`<div class="sidebar-heard"><b>客户问了${a.heard.length}点</b><ol>${a.heard.map(t=>`<li>${esc(t)}</li>`).join('')}</ol></div>`:''}${contrast}${gaps.length?`<section class="business-gap sidebar-missing"><h4>还没查到</h4>${pairs(gaps,esc)}</section>`:''}${knownHtml?`<section class="profit-summary sidebar-known"><div class="agent-section-heading"><h3>${r.calculation?'关键数字 · 条件测算':'已核对'}</h3></div>${knownHtml}</section>`:''}${(r.facts?.length||r.calls?.length||r.calculation)?`<details class="technical sidebar-detail"><summary>${r.calculation?'演算明细':'核对明细'}</summary>${r.calculation?calculationTable(r.calculation,esc):pairs(r.facts||[],esc)}<button class="button small wide" data-action="source-business-detail">${p.link}</button></details>`:''}`;
   return shell(c,s,esc,{status:a.status,check,reply:body,process:process(c,s,esc,records,calculation),next:a.next,kind:p.kind});
  }
- root.BusinessAnswerView={profiles,business,decorate,short,primary,missing,render,detailsHtml,replyAllowed,shell,audit};
+ root.BusinessAnswerView={profiles,business,decorate,short,primary,missing,render,detailsHtml,replyAllowed,shell,audit,pendingRows,verdictHtml};
  if(typeof module!=='undefined'&&module.exports)module.exports=root.BusinessAnswerView;
 })(typeof window!=='undefined'?window:globalThis);
