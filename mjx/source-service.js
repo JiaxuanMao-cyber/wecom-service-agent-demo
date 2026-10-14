@@ -94,7 +94,10 @@
   }
   function compact(c,s) {
     const view=root.BusinessProfitWalkthrough;
-    return `<div class="profit-assistant"><div class="item-heading"><h2>${s.round===0?'投入与剩余市值为何不同':'近期赚了，为什么整体还亏'}</h2><span class="badge blue">${s.closed?'本轮已结束':s.sent[s.round]?'已回复':view.ready(s)?'已核对':'待核对'}</span></div><p class="profit-scope">均衡精选A · 人民币 · 净值截至9月28日</p>${view.answerHtml(c,s,esc)}${view.facts(c,s,esc)}${view.process(c,s,esc)}<details class="technical profit-source"><summary>案例来源</summary>${view.sourceHtml(c,esc)}${root.LOCAL_CHAT_ANALYSIS?'<button class="plain-button" data-action="source-evidence">查看相关原始问法</button>':''}</details>${s.sent[s.round] && s.round<c.rounds.length-1?'<button class="button small wide" data-action="source-next">查看客户追问 →</button>':''}</div>`;
+    const title=s.round===0?'投入与剩余市值为何不同':'近期赚了，为什么整体还亏';
+    const status=s.closed?'本轮已结束':view.ready(s)?s.sent[s.round]?'已回复':'可回复':'待核对';
+    const check=`<p class="sidebar-verdict">${esc(view.verdict(c,s))}</p><p class="profit-scope">均衡精选A · 人民币 · 净值截至9月28日</p>${view.facts(c,s,esc)}`;
+    return root.BusinessAnswerView.shell(c,s,esc,{title,status,check,reply:view.answerHtml(c,s,esc),process:view.process(c,s,esc),kind:'calculation'});
   }
   function showProfitDialog(kind,c,s,index) {
     const view=root.BusinessProfitWalkthrough,dialog=document.getElementById('detail-dialog');
