@@ -102,7 +102,8 @@ body[data-source-service="true"] .wecom-layout .assistant-panel { overflow:clip;
 .sidebar-reply .sidebar-next p { margin:0; }
 .sidebar-math-note { color:#69778a;font-size:11px;line-height:1.8;margin:8px 0; }
 .sidebar-inline-ledger { overscroll-behavior-x:contain; }
-.sidebar-inline-ledger table { min-width:380px; }
+.sidebar-inline-ledger table { min-width:300px; }
+.sidebar-inline-ledger th small { display:block;font-size:9px;font-weight:400; }
 .sidebar-inline-ledger th,.sidebar-inline-ledger td { text-align:right;white-space:nowrap; }
 .sidebar-inline-ledger th:first-child,.sidebar-inline-ledger td:first-child { text-align:left; }
 .sidebar-inline-ledger .plain-button { padding:0;font-size:11px;white-space:nowrap; }
