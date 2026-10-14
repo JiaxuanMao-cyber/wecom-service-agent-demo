@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 310" role="img" aria-labelledby="title desc">
+  <title id="title">三个协作模块，保持原整体业务框架</title>
+  <desc id="desc">领域与Skill查询和解释事实，企微侧边栏让顾问使用并留下服务结果，策略后台审核方法后回到侧边栏。客户服务、策略管理和效果评估保持不变。</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#728197"/></marker></defs>
+  <rect width="900" height="310" rx="12" fill="#f5f7fb"/>
+  <g font-family="PingFang SC,Microsoft YaHei,sans-serif" text-anchor="middle">
+    <text x="450" y="43" font-size="26" fill="#354b66">客户服务 · 策略管理 · 效果评估</text>
+    <g fill="#fff" stroke="#d9e2ed"><rect x="24" y="83" width="252" height="130" rx="10"/><rect x="324" y="83" width="252" height="130" rx="10"/><rect x="624" y="83" width="252" height="130" rx="10"/></g>
+    <g fill="#165dff" font-size="22"><text x="150" y="118">① 能力</text><text x="450" y="118">② 交互</text><text x="750" y="118">③ 沉淀</text></g>
+    <g fill="#162f4e" font-size="31"><text x="150" y="163">领域与Skill</text><text x="450" y="163">企微侧边栏</text><text x="750" y="163">策略后台</text></g>
+    <g fill="#5b6a7e" font-size="22"><text x="150" y="195">事实与答复</text><text x="450" y="195">顾问服务</text><text x="750" y="195">方法与效果</text></g>
+    <text x="450" y="288" font-size="24" fill="#354b66">审核获准的方法，按适用场景回到侧边栏</text>
+  </g>
+  <g fill="none" stroke="#728197" stroke-width="2.5" marker-end="url(#arrow)"><path d="M276 148H313"/><path d="M576 148H613"/><path d="M750 216V246H450V218"/></g>
+</svg>

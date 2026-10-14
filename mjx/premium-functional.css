@@ -1,0 +1,89 @@
+/* 先由imagegen重设功能画面，再按真实字段和既有操作重建。
+ * 参见../../design/说明.md。只调展示，不变事实、状态、接口或执行权限。
+ */
+body { -webkit-font-smoothing: antialiased; }
+body[data-scene="service"] { background: #edf1f6; }
+body[data-scene="service"] .wecom-window { border-color: #dbe3ee; border-radius: 7px; box-shadow: 0 12px 40px #163b680b; }
+body[data-scene="service"] .wecom-native-rail { background: #2f73cb; border-color: #296ac2; }
+body[data-scene="service"] .wecom-titlebar { background: #fff; height: 31px; }
+body[data-scene="service"] .wecom-layout .chat-header { background: #f8f9fb; min-height: 69px; }
+body[data-scene="service"] .wecom-layout .chat-body { background: #f7f8fa; }
+body[data-scene="service"] .wecom-layout .bubble { border: 1px solid #e2e8f0; border-radius: 5px; box-shadow: 0 2px 3px #17294303; }
+body[data-scene="service"] .wecom-layout .assistant-head { padding: 13px 18px; border-bottom: 1px solid #eef1f5; }
+body[data-scene="service"] .wecom-layout .assistant-content { padding: 18px; }
+body[data-scene="service"] .agent-emblem { background: #edf4ff; border: 0; border-radius: 8px; color: #165dff; }
+body[data-scene="service"] .wecom-layout .item-heading { padding-bottom: 13px; margin-bottom: 16px; border-bottom: 1px solid #edf1f5; }
+body[data-scene="service"] .wecom-layout .item-heading h2 { font-size: 16px; line-height: 1.65; }
+body[data-scene="service"] .agent-section-heading { margin-bottom: 13px; }
+body[data-scene="service"] .agent-section-heading h3 { font-size: 13px; font-weight: 600; }
+body[data-scene="service"] .agent-highlights { display: grid; gap: 6px; }
+body[data-scene="service"] .agent-highlights > div { padding: 9px 10px; background: #f5f8fc; border: 0; border-radius: 5px; min-width: 0; }
+body[data-scene="service"] .agent-highlights dt { color: #65758c; font-size: 12px; }
+body[data-scene="service"] .agent-highlights dd { font-size: 14px; font-weight: 600; line-height: 1.7; }
+body[data-scene="service"] .agent-answer .agent-reply-text { background: #f3f7ff; padding: 14px; border-radius: 6px; border: 1px solid #eaf0fb; line-height: 1.85; font-size: 14px; }
+body[data-scene="service"] .agent-fact-more { margin-top: 10px; }
+body[data-scene="service"] .agent-fact-more summary { min-height: 32px; display: flex; align-items: center; font-size: 11px; color: #62748c; }
+body[data-scene="service"] .agent-process { margin: 17px 0 8px; }
+body[data-scene="service"] .agent-action-dock { padding: 14px 18px 13px; background: #fbfcfe; border-top: 1px solid #e6ebf3; }
+body[data-scene="service"] .agent-action-dock .action-row { width: 100%; }
+body[data-scene="service"] .agent-action-dock .button { flex: 1; min-height: 39px; border-radius: 5px; font-size: 13px; }
+body[data-scene="service"] .agent-action-dock > span { color: #61718a; font-size: 11px; }
+.wecom-design-link { color: #627b99; font-size: 11px; padding: 6px 3px; }
+body:not([data-scene="service"]) .platform-header { box-shadow: 0 1px 0 #e5e6eb; }
+body:not([data-scene="service"]) .nav-link.active { background: #f0f5ff; }
+body:not([data-scene="service"]) .nav-link { transition: background .15s ease; }
+body:not([data-scene="service"]) .page-intro { padding: 22px 24px; }
+body:not([data-scene="service"]) .page-intro h1 { font-weight: 600; font-size: 23px; }
+body:not([data-scene="service"]) .page-intro p { font-size: 13px; max-width: 950px; }
+body:not([data-scene="service"]) .toolbar { padding: 16px 20px; }
+body:not([data-scene="service"]) .toolbar .search { background: #fff; border: 1px solid #e5e6eb; min-height: 36px; }
+body:not([data-scene="service"]) .strategy-layout { grid-template-columns: minmax(440px, 1fr) 370px; gap: 16px; }
+body:not([data-scene="service"]) .strategy-table { padding: 10px; border-color: #e5e6eb; }
+body:not([data-scene="service"]) .table-row { padding: 19px 13px; font-size: 13px; }
+body:not([data-scene="service"]) .table-row b { font-weight: 600; font-size: 14px; }
+body:not([data-scene="service"]) .table-row small { font-size: 12px; }
+body:not([data-scene="service"]) .table-row.header { background: #f7f8fa; padding: 13px; }
+body:not([data-scene="service"]) .table-row.selected { background: #eef4ff; box-shadow: inset 3px 0 #165dff; }
+body:not([data-scene="service"]) .strategy-detail { padding: 22px; }
+body:not([data-scene="service"]) .strategy-detail h2 { font-size: 20px; font-weight: 600; line-height: 1.6; }
+body:not([data-scene="service"]) .strategy-detail > p { font-size: 13px; }
+body:not([data-scene="service"]) .method-list li { font-size: 13px; line-height: 1.8; }
+body:not([data-scene="service"]) .quiet-callout { border: 0; background: #f5f7fa; font-size: 12px; line-height: 1.85; border-radius: 5px; }
+body:not([data-scene="service"]) .callout-amber { background: #fff8ed; color: #926523; border-left: 2px solid #e3b060; }
+body:not([data-scene="service"]) .review-layout { grid-template-columns: 250px minmax(400px, 1fr); gap: 16px; }
+body:not([data-scene="service"]) .review-list { padding: 10px; }
+body:not([data-scene="service"]) .review-choice { padding: 16px 12px; }
+body:not([data-scene="service"]) .review-card { padding: 24px; }
+body:not([data-scene="service"]) .review-top h2 { font-size: 21px; font-weight: 600; }
+body:not([data-scene="service"]) .review-bottom { background: #f7f9fc; border-radius: 6px; padding: 17px; gap: 18px; }
+body:not([data-scene="service"]) .collaboration-grid { grid-template-columns: 205px minmax(320px, 1fr) 305px; gap: 15px; }
+body:not([data-scene="service"]) .queue-item { padding: 15px 10px; }
+body:not([data-scene="service"]) .queue-item.selected { background: #eef4ff; }
+body:not([data-scene="service"]) .case-investigation { padding: 23px; }
+body:not([data-scene="service"]) .investigation-header h2 { font-size: 20px; }
+body:not([data-scene="service"]) .evidence-sheet { background: #f8fafc; border-color: #e7ecf2; }
+body:not([data-scene="service"]) .evidence-rows dd { font-size: 13px; }
+body:not([data-scene="service"]) .action-sheet { padding: 20px; }
+body:not([data-scene="service"]) .strategy-actions { margin-top: 18px; }
+@media (max-width: 1250px) {
+  body:not([data-scene="service"]) .strategy-layout { grid-template-columns: minmax(350px, 1fr) 320px; }
+  body:not([data-scene="service"]) .collaboration-grid { grid-template-columns: 185px minmax(320px, 1fr); }
+  body:not([data-scene="service"]) .action-sheet { grid-column: 2; }
+}
+@media (max-width: 1000px) {
+  body:not([data-scene="service"]) .strategy-layout, body:not([data-scene="service"]) .review-layout { grid-template-columns: 1fr; }
+  body:not([data-scene="service"]) .review-list { display: flex; overflow-x: auto; }
+  body:not([data-scene="service"]) .review-choice { min-width: 200px; }
+}
+@media (max-width: 760px) {
+  body[data-scene="service"] .wecom-design-link { display: none; }
+  body[data-scene="service"] .wecom-layout .assistant-content { padding: 13px; }
+  body[data-scene="service"] .agent-action-dock { padding: 10px 13px; }
+  body[data-scene="service"] .wecom-layout .assistant-head { padding: 10px 13px; }
+  body:not([data-scene="service"]) .collaboration-grid { grid-template-columns: 1fr; }
+  body:not([data-scene="service"]) .action-sheet { grid-column: auto; }
+  body:not([data-scene="service"]) .page-intro { padding: 16px; }
+  body:not([data-scene="service"]) .strategy-table { overflow: auto; }
+}
+/* 金额单位约定留在事实旁，不藏到纯技术详情。 */
+.fact-unit-note { display: block; margin-top: 5px; color: #667085; font-size: 11px; line-height: 1.6; font-weight: 400; }

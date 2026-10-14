@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">从客户问题到顾问可使用的答复</title>
+  <desc id="desc">客户提问后选择领域Skill、按需取得事实，再解释业务并形成顾问使用的建议。事实不足时补充或必要协同，不编结论，发送关闭由外部流程控制。</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#728197"/></marker></defs>
+  <rect width="760" height="300" rx="12" fill="#f5f7fb"/>
+  <g fill="#fff" stroke="#d9e2ed"><rect x="25" y="24" width="210" height="76" rx="8"/><rect x="275" y="24" width="210" height="76" rx="8"/><rect x="525" y="24" width="210" height="76" rx="8"/><rect x="275" y="167" width="210" height="76" rx="8"/><rect x="525" y="167" width="210" height="76" rx="8"/></g>
+  <g font-family="PingFang SC,Microsoft YaHei,sans-serif" text-anchor="middle" font-size="30" fill="#162f4e"><text x="130" y="72">客户提问</text><text x="380" y="72">选择Skill</text><text x="630" y="72">查询事实</text><text x="380" y="215">业务解答</text><text x="630" y="215">顾问使用</text></g>
+  <g fill="none" stroke="#728197" stroke-width="2.5" marker-end="url(#arrow)"><path d="M235 62H264"/><path d="M485 62H514"/><path d="M630 102V134H380V156"/><path d="M485 205H514"/></g>
+  <g font-family="PingFang SC,Microsoft YaHei,sans-serif" text-anchor="middle" fill="#5b6a7e" font-size="23"><text x="162" y="189">缺条件 → 补充</text><text x="162" y="221">缺能力 → 协同</text><text x="380" y="282">事实不足不编结论 · 多问题分别处理</text></g>
+</svg>

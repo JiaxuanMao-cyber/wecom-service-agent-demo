@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="assets/company-logo.png">
+  <title>财富服务智能体 · 服务与策略闭环</title>
+  <meta name="description" content="企微侧边栏服务、主动被动场景、策略沉淀及基于事实和A/B结果的审核交互Demo。">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="scenarios.css">
+  <link rel="stylesheet" href="wecom.css">
+  <link rel="stylesheet" href="agent-sidebar.css">
+  <link rel="stylesheet" href="profit-assistant.css">
+  <link rel="stylesheet" href="platform-theme.css">
+  <link rel="stylesheet" href="premium-functional.css">
+  <link rel="stylesheet" href="strategy-management.css">
+</head>
+<body>
+  <header class="platform-header" aria-label="财富管理中台原型顶部">
+    <a class="platform-brand" href="#strategies"><img src="assets/company-logo.png" alt="广发基金"><span>财富管理中台</span></a>
+    <div class="platform-user"><span class="platform-demo-label">智能体原型 · 本地演示</span><span>财富顾问</span><span class="avatar small" aria-label="本地演示身份">顾</span></div>
+  </header>
+  <div class="app-shell">
+    <aside class="nav-rail" aria-label="主导航">
+      <a class="brand" href="#strategies" aria-label="财富服务策略工作台"><span class="brand-mark">广</span><span>财富服务<span class="brand-sub">智能体工作台</span></span></a>
+      <div class="nav-caption">服务智能体</div>
+      <nav id="navigation">
+        <button class="nav-link" data-view="service"><span class="nav-icon">◫</span>会话服务</button>
+        <button class="nav-link" data-view="coordination"><span class="nav-icon">⇄</span>问题协同</button>
+        <button class="nav-link" data-view="active"><span class="nav-icon">↗</span>主动服务</button>
+        <button class="nav-link" data-view="strategies"><span class="nav-icon">◈</span>策略管理</button>
+        <button class="nav-link" data-view="review"><span class="nav-icon">◎</span>评估与审核</button>
+        <a class="nav-link" href="overview.html" target="_blank" rel="noopener"><span class="nav-icon">⌘</span>整体方案</a>
+        <a class="nav-link" href="overview.html#三个模块与任务边界" target="_blank" rel="noopener"><span class="nav-icon">⇆</span>模块协同说明</a>
+      </nav>
+      <div class="growth-note"><span class="small-label">可成长的服务能力</span><p>事实有依据<br>方法可复用<br>效果可验证</p><div class="growth-line"><i></i><i></i><i></i><i></i></div></div>
+      <div class="rail-bottom"><div class="avatar small">顾</div><div>财富顾问<span>本地演示身份</span></div></div>
+    </aside>
+    <div class="workspace">
+      <header class="global-header"><div class="breadcrumbs">财富服务<span>/</span><strong id="page-name">场景总览</strong></div><div class="header-actions"><span class="demo-pill"><i></i>本地交互演示</span><button class="plain-button" id="data-boundary">数据说明</button><button class="plain-button" id="reset-demo">重置演示</button></div></header>
+      <main id="main-content"></main>
+      <footer class="global-footer"><span>共性场景改写 · 业务结果为演示 · 不向客户发送</span><span>查看设计依据 ↗</span></footer>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="detail-dialog" aria-labelledby="dialog-title"><div class="dialog-head"><div><span class="small-label" id="dialog-eyebrow">详情</span><h2 id="dialog-title"></h2></div><button class="icon-button" id="close-dialog" aria-label="关闭详情">×</button></div><div id="dialog-body"></div></dialog>
+  <script>if (!location.hash) history.replaceState(null, "", location.pathname + location.search + "#service");</script><script src="data.js"></script><script src="engine.js"></script><script src="service-interaction-cases.js"></script><script src="business-scenarios.js"></script><script src="service-simulation.js"></script><script src="profit-walkthrough.js"></script><script src="business-answer-view.js"></script><script src="source-service.js"></script><script src="scenario-views.js"></script><script src="wecom-shell.js"></script><script src="agent-sidebar.js"></script><script src="advisor-copy-data.js"></script><script src="advisor-copy.js"></script><script src="strategy-attribution-data.js"></script><script src="strategy-catalog.js"></script><script src="strategy-management.js"></script><script src="competition-adapter.js"></script><script src="app.js"></script>
+</body>
+</html>

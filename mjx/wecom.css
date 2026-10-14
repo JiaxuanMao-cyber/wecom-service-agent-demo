@@ -1,0 +1,142 @@
+/* 客户咨询嵌入企微宿主的展示层；不代表企微SDK接入。 */
+body[data-scene="service"] { background: #edf0f3; }
+body[data-scene="service"] .app-shell { display: block; }
+body[data-scene="service"] .nav-rail,
+body[data-scene="service"] .global-header,
+body[data-scene="service"] .global-footer { display: none; }
+body[data-scene="service"] .workspace { width: 100%; margin: 0; min-width: 0; }
+body[data-scene="service"] #main-content { max-width: 1700px; padding: 12px 22px 10px; }
+.wecom-demo-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 14px; min-height: 38px; }
+.wecom-demo-toolbar > div { display: flex; align-items: center; gap: 16px; }
+.wecom-demo-toolbar button, .wecom-demo-footer button { background: transparent; border: 0; color: #49627e; font: 12px var(--body-font); min-height: 34px; padding: 5px 7px; }
+.wecom-demo-name { font-size: 15px; font-weight: 600; color: #243c57; }
+.wecom-demo-tools > span { font-size: 11px; color: #778594; }
+.wecom-mobile-switch { display: none; }
+.wecom-window { border: 1px solid #d4dce3; border-radius: 5px; background: #fff; box-shadow: 0 8px 28px #283d5210; overflow: hidden; }
+.wecom-titlebar { height: 30px; display: flex; align-items: center; gap: 16px; padding: 0 0 0 16px; background: #fafafa; border-bottom: 1px solid #e0e5eb; }
+.wecom-titlebar b { font-size: 12px; font-weight: 500; color: #596573; }
+.wecom-titlebar > span { margin-left: auto; font-size: 10px; color: #88929f; }
+.window-controls { display: flex; margin-left: 8px; height: 100%; }
+.window-controls i { width: 38px; display: grid; place-items: center; color: #77818d; font-style: normal; font-size: 15px; }
+body[data-scene="service"] .wecom-layout { display: grid; grid-template-columns: 60px 228px minmax(280px, 1fr) 376px; gap: 0; height: calc(100vh - 145px); min-height: 620px; align-items: stretch; }
+.wecom-native-rail { background: #3b79c5; border-right: 1px solid #3470b9; display: flex; align-items: center; flex-direction: column; padding: 17px 5px; min-width: 0; }
+.wecom-advisor-avatar { width: 36px; height: 36px; background: #eff5fb; color: #426487; border: 1px solid #c9d7e8; border-radius: 3px; display: grid; place-items: center; font-size: 14px; }
+.native-section { display: flex; flex-direction: column; align-items: center; color: #fff; padding: 11px; margin-top: 26px; background: #2966b1; border-radius: 4px; }
+.native-section svg { width: 21px; height: 21px; stroke: currentColor; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.native-decoration { display: flex; flex-direction: column; gap: 24px; margin-top: 26px; color: #d7e7fa; }
+.native-decoration svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; }
+.native-bottom-icon { color: #d7e7fa; margin-top: auto; font-size: 20px; }
+body[data-scene="service"] .wecom-conversations { display: flex; flex-direction: column; grid-column: auto; overflow: auto; border: 0; border-right: 1px solid #e1e6ec; border-radius: 0; background: #f6f7f9; padding: 0; gap: 0; min-width: 0; }
+body[data-scene="service"] .wecom-conversations .scenario-heading { display: flex; justify-content: space-between; align-items: center; padding: 19px 16px; font-size: 11px; color: #778799; border-bottom: 1px solid #e8ecf1; }
+body[data-scene="service"] .wecom-conversations .scenario-button { display: flex; align-items: center; gap: 11px; width: 100%; min-width: 0; border: 0; border-radius: 0; margin: 0; padding: 15px 13px; text-align: left; }
+body[data-scene="service"] .wecom-conversations .scenario-button[hidden] { display: none; }
+body[data-scene="service"] .wecom-conversations .scenario-button.selected { background: #dce7f2; border-left: 0; padding-left: 13px; }
+.conversation-avatar { width: 38px; height: 38px; border-radius: 3px; background: #dce8de; color: #58745a; font-size: 15px; display: grid; place-items: center; flex: none; }
+.conversation-preview { min-width: 0; display: block; flex: 1; }
+body[data-scene="service"] .conversation-preview b { display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: #263442; margin: 0 0 5px; font-weight: 500; }
+.conversation-preview time { font-size: 10px; font-weight: 400; color: #9299a3; }
+.conversation-preview > span { display: block; font-size: 12px; line-height: 1.6; color: #8a9098; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wecom-search { margin: 14px 12px 12px; display: flex; align-items: center; gap: 7px; background: #e8eaed; border-radius: 3px; padding: 0 9px; height: 30px; color: #929aa3; }
+.wecom-search input { border: 0; background: transparent; min-width: 0; flex: 1; font-size: 12px; outline: none; color: #354252; }
+.wecom-search input:focus-visible { outline: 2px solid #165dff; outline-offset: 2px; }
+.wecom-search-add { padding-left: 5px; border-left: 1px solid #d4d8de; font-size: 17px; }
+body[data-scene="service"] .conversation-preview small { display: block; font-size: 10px; color: #8b96a3; margin-top: 5px; line-height: 1.6; }
+.conversation-boundary { margin-top: auto; padding: 18px 15px; font-size: 10px; line-height: 1.8; color: #8793a1; }
+body[data-scene="service"] .wecom-layout .chat-panel,
+body[data-scene="service"] .wecom-layout .assistant-panel { order: initial; height: 100%; min-height: 0; border: 0; border-radius: 0; box-shadow: none; }
+body[data-scene="service"] .wecom-layout .chat-panel { border-right: 1px solid #dce3eb; }
+body[data-scene="service"] .wecom-layout .chat-header { min-height: 66px; padding: 15px 24px; flex: none; background: #f7f7f8; }
+body[data-scene="service"] .wecom-layout .chat-header b { font-size: 16px; font-weight: 500; }
+body[data-scene="service"] .wecom-layout .chat-header small { margin-top: 5px; color: #7d8b9c; font-size: 11px; }
+.wecom-contact-tag { display: inline-block; color: #4d9b51; font-size: 12px; font-weight: 400; margin-left: 5px; }
+.wecom-chat-label { margin-left: auto; color: #8492a1; font-size: 20px; letter-spacing: 2px; flex: none; }
+body[data-scene="service"] .wecom-layout .chat-body { min-height: 0; max-height: none; overflow-y: auto; background: #f6f6f7; padding: 20px 24px; }
+body[data-scene="service"] .wecom-layout .message-content { max-width: 86%; }
+body[data-scene="service"] .wecom-layout .bubble { font-size: 14px; padding: 10px 13px; line-height: 1.85; box-shadow: none; border-color: #e4e8ec; border-radius: 5px; }
+body[data-scene="service"] .wecom-layout .message.advisor .bubble { background: #c9e7ff; border-color: #c9e7ff; border-radius: 4px; }
+body[data-scene="service"] .wecom-layout .message-meta { font-size: 11px; color: #657182; }
+body[data-scene="service"] .wecom-layout .message-origin { font-size: 10px; color: #89939e; margin-top: 4px; }
+body[data-scene="service"] .wecom-layout .chat-date { font-size: 11px; color: #657182; }
+body[data-scene="service"] .conversation-boundary { font-size: 11px; color: #697586; }
+body[data-scene="service"] .wecom-layout .chat-context { flex: none; font-size: 11px; padding: 9px 18px; }
+body[data-scene="service"] .wecom-layout .chat-context > span { min-width: 0; line-height: 1.6; }
+body[data-scene="service"] .wecom-layout .chat-context button { flex: none; }
+body[data-scene="service"] .wecom-layout .composer { flex: none; padding: 9px 18px 12px; background: #fff; }
+body[data-scene="service"] .wecom-layout .composer textarea { min-height: 110px; max-height: 140px; font-size: 14px; resize: none; padding: 7px 0; border: 0; background: transparent; box-shadow: none; }
+.wecom-input-tools { display: flex; align-items: center; gap: 20px; color: #717b84; height: 28px; font-size: 20px; }
+.wecom-input-tools .wecom-tool-divider { height: 16px; border-right: 1px solid #e2e4e8; }
+body[data-scene="service"] .wecom-layout .composer-actions .button { min-height: 32px; padding: 5px 17px; border-radius: 3px; font-size: 12px; }
+body[data-scene="service"] .wecom-layout .composer-label { font-size: 10px; }
+body[data-scene="service"] .wecom-layout .composer-actions small { font-size: 10px; color: #8b97a5; }
+.wecom-sidebar-location { display: flex; justify-content: space-between; gap: 10px; padding: 11px 18px; font-size: 10px; color: #798b9f; background: #f6f9fc; border-bottom: 1px solid #edf0f4; flex: none; }
+body[data-scene="service"] .wecom-layout .assistant-head { flex: none; padding: 15px 18px; }
+body[data-scene="service"] .wecom-layout .assistant-head small { font-size: 11px; }
+body[data-scene="service"] .wecom-layout .problem-tabs { flex: none; padding: 5px 10px 0; }
+body[data-scene="service"] .wecom-layout .problem-tab { flex: none; min-width: 110px; max-width: 175px; }
+body[data-scene="service"] .wecom-layout .tab-caption b { max-width: 143px; }
+body[data-scene="service"] .wecom-layout .assistant-content { min-height: 0; overflow-y: auto; padding: 18px; overscroll-behavior: contain; }
+body[data-scene="service"] .wecom-layout .item-heading h2 { font-size: 17px; }
+body[data-scene="service"] .wecom-layout .evidence-rows dd { font-size: 13px; }
+body[data-scene="service"] .wecom-layout .section-label { letter-spacing: 0; font-size: 10px; gap: 10px; }
+body[data-scene="service"] .wecom-layout .reply-block { font-size: 14px; }
+body[data-scene="service"] .wecom-layout .action-row { gap: 8px; }
+.wecom-demo-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 11px 2px 0; }
+.wecom-demo-footer p { margin: 0; font-size: 10px; line-height: 1.8; color: #8390a0; }
+.wecom-demo-footer p b { font-weight: 500; color: #65778c; }
+.wecom-demo-footer button { flex: none; font-size: 11px; }
+.boundary-short { display: none; }
+@media (min-width: 1600px) { body[data-scene="service"] .wecom-layout { grid-template-columns: 60px 244px minmax(360px, 1fr) 390px; } }
+@media (max-width: 1150px) {
+  body[data-scene="service"] #main-content { padding: 14px 16px 10px; }
+  body[data-scene="service"] .wecom-layout { grid-template-columns: 48px 176px minmax(255px, 1fr) 350px; }
+  .wecom-demo-name { font-size: 13px; }
+  .wecom-demo-tools > span { display: none; }
+  body[data-scene="service"] .wecom-layout .chat-header { padding: 14px 17px; }
+  .wecom-chat-label { display: none; }
+  body[data-scene="service"] .wecom-layout .chat-body { padding: 18px 17px; }
+  body[data-scene="service"] .wecom-layout .assistant-content { padding: 16px; }
+}
+@media (max-width: 930px) {
+  body[data-scene="service"] .wecom-layout { grid-template-columns: 140px minmax(240px, 1fr) 330px; }
+  .wecom-native-rail { display: none; }
+  body[data-scene="service"] .wecom-conversations .scenario-button { padding: 14px 10px; gap: 7px; }
+  body[data-scene="service"] .wecom-conversations .scenario-button.selected { padding-left: 7px; }
+  .conversation-avatar { width: 25px; height: 25px; font-size: 10px; }
+  .wecom-demo-footer { align-items: start; }
+}
+@media (max-width: 760px) {
+  body[data-scene="service"] #main-content { padding: 8px; height: 100dvh; min-height: 0; flex: none; display: flex; flex-direction: column; overflow: hidden; }
+  .wecom-demo-toolbar, .wecom-mobile-switch { flex: none; }
+  .wecom-window { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .wecom-titlebar { flex: none; }
+  .wecom-demo-toolbar { align-items: center; gap: 8px; margin-bottom: 5px; min-height: 30px; }
+  .wecom-demo-toolbar > div { gap: 0; align-items: center; }
+  .wecom-demo-toolbar .wecom-demo-tools { flex-direction: row; }
+  .wecom-demo-toolbar button { font-size: 11px; padding: 3px 2px; }
+  .wecom-demo-name { display: none; }
+  .wecom-mobile-switch { display: flex; padding: 4px; background: #e0e5eb; border-radius: 7px; margin-bottom: 10px; }
+  .wecom-mobile-switch button { flex: 1; border: 0; background: transparent; color: #6e7e90; border-radius: 5px; min-height: 36px; font-size: 12px; }
+  .wecom-mobile-switch button[aria-pressed="true"] { background: #fff; color: #24578b; box-shadow: 0 1px 4px #253d5110; }
+  .wecom-titlebar { height: 30px; padding: 0 8px; gap: 12px; }
+  .wecom-titlebar > span { font-size: 9px; }
+  body[data-scene="service"] .wecom-layout { display: flex; flex-direction: column; min-height: 0; height: auto; flex: 1; }
+  body[data-scene="service"] .wecom-conversations { flex-direction: row; overflow-x: auto; flex: none; border-right: 0; border-bottom: 1px solid #e1e6ec; padding: 6px; gap: 5px; }
+  body[data-scene="service"] .wecom-conversations .scenario-heading, .wecom-search, .conversation-boundary { display: none; }
+  body[data-scene="service"] .wecom-conversations .scenario-button { width: 130px; min-width: 130px; border-radius: 5px; border: 0; padding: 7px; }
+  body[data-scene="service"] .wecom-conversations .scenario-button.selected { padding-left: 7px; }
+  body[data-scene="service"] .conversation-preview b { font-size: 12px; }
+  body[data-scene="service"] .conversation-preview small { display: none; }
+  .conversation-preview > span { font-size: 10px; }
+  body[data-scene="service"] .wecom-layout .chat-panel { flex: 1; height: auto; border: 0; }
+  body[data-scene="service"] .wecom-layout .assistant-panel { flex: 1; height: auto; }
+  body[data-scene="service"][data-wecom-pane="assistant"] .wecom-layout .chat-panel { display: none; }
+  body[data-scene="service"][data-wecom-pane="chat"] .wecom-layout .assistant-panel { display: none; }
+  body[data-scene="service"] .wecom-layout .assistant-content { overflow-y: auto; min-height: 0; }
+  body[data-scene="service"] .wecom-layout .chat-header { min-height: 54px; }
+  .window-controls { display: none; }
+  .wecom-demo-footer { flex: none; flex-direction: row; gap: 3px; padding-top: 4px; }
+  .wecom-demo-footer p { font-size: 11px; color: #697586; }
+  .wecom-demo-footer button { font-size: 10px; max-width: 140px; }
+  .boundary-full { display: none; }
+  .boundary-short { display: inline; }
+}

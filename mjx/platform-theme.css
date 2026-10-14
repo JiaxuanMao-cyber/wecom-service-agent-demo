@@ -1,0 +1,129 @@
+/* 只读参照财富管理中台源码的展示适配，不加载公司应用或真实权限。
+ * 来源及差异见「样式对齐依据.md」。企微页不继承后台壳层。
+ */
+body:not([data-scene="service"]) {
+  --platform-primary: #165dff;
+  --primary: var(--platform-primary);
+  --ink: #1d2129;
+  --muted: #6b7785;
+  --line: #e5e6eb;
+  --surface: #f9f9f9;
+  --canvas: #f0f2f5;
+  --blue-soft: #f0f5ff;
+  --display-font: "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f0f2f5;
+  font-size: 14px;
+}
+.platform-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 10px 21px;
+  background: #fff;
+  border-bottom: 1px solid #e5e6eb;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+body[data-scene="service"] .platform-header { display: none; }
+.platform-brand { display: flex; align-items: center; gap: 7px; color: #1d2129; }
+.platform-brand img { width: 30px; height: 25px; object-fit: contain; }
+.platform-brand > span { font: 600 20px/1.5 "PingFang SC", "Microsoft YaHei", sans-serif; }
+.platform-user { display: flex; align-items: center; gap: 12px; font-size: 14px; color: #1d2129; }
+.platform-demo-label { color: #6b7785; font-size: 12px; margin-right: 14px; }
+body:not([data-scene="service"]) .app-shell { min-height: calc(100vh - 60px); }
+body:not([data-scene="service"]) .nav-rail {
+  width: 230px;
+  height: calc(100vh - 60px);
+  top: 60px;
+  padding: 16px 16px 18px;
+  background: #fff;
+  color: #4e5969;
+  border-right: 1px solid #e5e6eb;
+}
+body:not([data-scene="service"]) .nav-rail > .brand { display: none; }
+body:not([data-scene="service"]) .nav-caption { color: #86909c; font-size: 12px; letter-spacing: 0; margin: 6px 12px 16px; }
+body:not([data-scene="service"]) .nav-link { color: #4e5969; height: 38px; min-height: 38px; margin: 5px 0; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 400; gap: 12px; }
+body:not([data-scene="service"]) .nav-link:hover { background: rgba(0, 0, 0, .03); color: #4e5969; filter: none; }
+body:not([data-scene="service"]) .nav-link.active { background: rgba(0, 0, 0, .04); color: #165dff; box-shadow: none; font-weight: 500; }
+body:not([data-scene="service"]) .nav-icon { width: 18px; font-size: 17px; }
+body:not([data-scene="service"]) .growth-note { margin: 32px 12px 0; border-color: #e5e6eb; padding-top: 20px; }
+body:not([data-scene="service"]) .growth-note p { color: #86909c; font-size: 12px; }
+body:not([data-scene="service"]) .growth-note .small-label { color: #6b7785; }
+body:not([data-scene="service"]) .rail-bottom { color: #4e5969; border-color: #e5e6eb; font-size: 12px; padding-top: 20px; }
+body:not([data-scene="service"]) .rail-bottom span { color: #86909c; font-size: 11px; }
+body:not([data-scene="service"]) .global-header { height: 46px; min-height: 46px; padding: 0 20px; background: transparent; border: 0; }
+body:not([data-scene="service"]) .breadcrumbs { font-size: 14px; gap: 10px; }
+body:not([data-scene="service"]) .header-actions { gap: 16px; }
+body:not([data-scene="service"]) .header-actions .plain-button { font-size: 12px; }
+body:not([data-scene="service"]) #main-content { padding: 0 15px 24px; max-width: none; }
+body:not([data-scene="service"]) .page-intro { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 15px; }
+body:not([data-scene="service"]) .page-intro h1 { font-size: 22px; line-height: 1.5; letter-spacing: 0; }
+body:not([data-scene="service"]) .eyebrow { font-size: 12px; letter-spacing: 0; color: #86909c; }
+body:not([data-scene="service"]) .page-intro p { font-size: 13px; color: #6b7785; }
+body:not([data-scene="service"]) .button { border-radius: 4px; min-height: 36px; font-size: 14px; font-weight: 400; }
+body:not([data-scene="service"]) .button.primary:hover:not(:disabled) { background: #4080ff; border-color: #4080ff; }
+body:not([data-scene="service"]) .button.small { min-height: 32px; font-size: 12px; }
+body:not([data-scene="service"]) .button:disabled { background: #f7f8fa; border-color: #e5e6eb; color: #86909c; opacity: 1; }
+body:not([data-scene="service"]) .search, body:not([data-scene="service"]) textarea { background: #f2f3f5; border: 1px solid transparent; border-radius: 4px; font-size: 14px; }
+body:not([data-scene="service"]) .search:focus, body:not([data-scene="service"]) textarea:focus { border-color: #165dff; outline: 2px solid #165dff1a; }
+body:not([data-scene="service"]) .toolbar { background: #fff; border-radius: 8px; padding: 15px 20px; margin-bottom: 15px; }
+body:not([data-scene="service"]) .segment { border: 0; padding: 0; border-radius: 4px; gap: 12px; }
+body:not([data-scene="service"]) .segment button { border-radius: 0; border-bottom: 2px solid transparent; background: none; color: #4e5969; padding: 8px 6px; font-size: 14px; }
+body:not([data-scene="service"]) .segment button.active { color: #165dff; border-bottom-color: #165dff; }
+body:not([data-scene="service"]) .strategy-layout, body:not([data-scene="service"]) .review-layout,
+body:not([data-scene="service"]) .collaboration-grid, body:not([data-scene="service"]) .active-service-grid { gap: 15px; }
+body:not([data-scene="service"]) :is(.strategy-table,.strategy-detail,.review-list,.review-card,.work-queue,.opportunity-queue,.case-investigation,.opportunity-evidence,.action-sheet,.plan-panel,.plan-flow,.scene-entry,.overview-spine) { border-radius: 8px; box-shadow: none; border-color: #e5e6eb; }
+body:not([data-scene="service"]) .table-row { font-size: 14px; padding: 14px 20px; gap: 14px; line-height: 1.6; }
+body:not([data-scene="service"]) .table-row.header { background: #fafafa; color: #4e5969; font-size: 14px; padding: 12px 20px; }
+body:not([data-scene="service"]) .table-row b { font-size: 14px; }
+body:not([data-scene="service"]) .table-row small { font-size: 12px; }
+body:not([data-scene="service"]) .table-row.selected { background: #f0f5ff; }
+body:not([data-scene="service"]) .table-row:not(.header):hover { background: #f7f8fa; }
+body:not([data-scene="service"]) :is(.strategy-detail,.review-card,.plan-panel) { padding: 20px; }
+body:not([data-scene="service"]) :is(.strategy-detail h2,.review-top h2,.investigation-header h2) { font-family: var(--body-font); font-size: 20px; }
+body:not([data-scene="service"]) :is(.review-card p,.strategy-detail p,.method-list li,.metadata-grid) { font-size: 13px; }
+body:not([data-scene="service"]) .badge { font-size: 12px; border-radius: 4px; }
+body:not([data-scene="service"]) .badge.blue { color: #165dff; background: #f0f5ff; }
+body:not([data-scene="service"]) .review-choice.selected, body:not([data-scene="service"]) .queue-item.selected { background: #f0f5ff; border-color: #d9e6ff; }
+body:not([data-scene="service"]) .review-choice b { font-size: 14px; }
+body:not([data-scene="service"]) .metric-number { font-family: var(--body-font); }
+body:not([data-scene="service"]) .overview-spine h2 { font-family: var(--body-font); font-size: 24px; }
+body:not([data-scene="service"]) .plan-hero { background: #fff; border: 1px solid #e5e6eb; border-radius: 8px; color: #1d2129; padding: 24px; }
+body:not([data-scene="service"]) .plan-hero .eyebrow { color: #165dff; }
+body:not([data-scene="service"]) .plan-hero h1 { font-family: var(--body-font); font-size: 26px; }
+body:not([data-scene="service"]) .plan-hero p { color: #6b7785; font-size: 14px; }
+body:not([data-scene="service"]) .plan-hero::after { display: none; }
+body:not([data-scene="service"]) .global-footer { background: transparent; border-color: #e5e6eb; padding: 14px 20px; color: #86909c; }
+body:not([data-scene="service"]) .provenance-line { font-size: 12px; color: #697586; }
+body:not([data-scene="service"]) dialog { border-radius: 8px; }
+body:not([data-scene="service"]) .dialog-head { padding: 16px 24px; }
+body:not([data-scene="service"]) .dialog-head h2 { font-size: 16px; }
+body:not([data-scene="service"]) #dialog-body { padding: 24px; font-size: 14px; }
+@media (max-width: 1150px) {
+  body:not([data-scene="service"]) .nav-rail { width: 180px; padding: 16px 12px; }
+  body:not([data-scene="service"]) .nav-link { font-size: 13px; }
+  body:not([data-scene="service"]) .strategy-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .platform-header { padding: 10px 16px; }
+  .platform-brand > span { font-size: 17px; }
+  .platform-demo-label, .platform-user > span:nth-child(2) { display: none; }
+  body:not([data-scene="service"]) .nav-rail { position: sticky; width: 100%; height: auto; top: 60px; z-index: 30; padding: 8px 12px; border-bottom: 1px solid #e5e6eb; }
+  body:not([data-scene="service"]) .nav-caption { display: none; }
+  body:not([data-scene="service"]) .nav-rail nav { margin: 0; }
+  body:not([data-scene="service"]) .nav-link { flex: none; width: auto; padding: 0 10px; font-size: 12px; }
+  body:not([data-scene="service"]) .global-header { padding: 0 15px; height: 50px; }
+  body:not([data-scene="service"]) .breadcrumbs { font-size: 12px; }
+  body:not([data-scene="service"]) #main-content { padding: 0 12px 20px; }
+  body:not([data-scene="service"]) .page-intro { padding: 16px; }
+  body:not([data-scene="service"]) .page-intro h1 { font-size: 20px; }
+  body:not([data-scene="service"]) .table-row { font-size: 12px; padding: 14px 12px; gap: 10px; }
+  body:not([data-scene="service"]) .table-row.header { font-size: 12px; padding: 12px; }
+  body:not([data-scene="service"]) .table-row b { font-size: 13px; }
+  body:not([data-scene="service"]) .table-row small { font-size: 11px; }
+  body:not([data-scene="service"]) .toolbar { padding: 12px; }
+  body:not([data-scene="service"]) .segment { flex-wrap: wrap; gap: 5px; }
+  body:not([data-scene="service"]) .segment button { font-size: 12px; }
+}

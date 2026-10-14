@@ -1,0 +1,44 @@
+/* 收益咨询：短答复优先，账本按需展开。金额方向仅用于已核对盈亏。 */
+.profit-assistant .item-heading { margin-bottom:4px!important; }
+.profit-assistant .item-heading h2 { font-size:15px!important; }
+.profit-scope,.profit-brief { font-size:11px;line-height:1.75;color:#697586;margin:0 0 14px; }
+.profit-answer { margin:0 0 17px; }
+.profit-answer .agent-reply-text { font-size:13px;line-height:1.9;padding:13px 14px; }
+.profit-answer .button { margin-top:10px; }
+.profit-summary { padding:13px 0 3px;border-top:1px solid #e5e6eb; }
+.profit-summary .agent-section-heading h3 { font-size:12px; }
+.profit-summary .agent-section-heading>span { margin-left:auto;font-size:10px;color:#697586; }
+.profit-metrics { display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px;margin:14px 0; }
+.profit-metrics>div { min-width:0; }
+.profit-metrics span,.profit-metrics small { display:block;font-size:10px;line-height:1.8;color:#697586; }
+.profit-metrics strong { display:block;font-size:15px;line-height:1.8;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:-.3px; }
+.profit-positive { color:#B72F32!important; }
+.profit-negative { color:#17744B!important; }
+.profit-neutral { color:#243b5a!important; }
+.profit-cause { color:#4e5969;font-size:12px;line-height:1.8;margin:9px 0 12px; }
+.profit-links { display:flex;gap:8px;margin:11px 0; }
+.profit-links .button { flex:1;font-size:11px;background:#f7f9fc;color:#334f74;border-color:#e4eaf3;min-height:34px; }
+.profit-assistant .business-detail,.profit-source { margin:8px 0!important; }
+.profit-assistant .business-detail p,.profit-source p { font-size:11px;line-height:1.8;color:#697586; }
+.profit-assistant .agent-fact-row dd { color:#243b5a; }
+.profit-assistant .agent-process { margin-top:12px!important; }
+.profit-assistant .agent-event>span { width:18px; }
+dialog.profit-dialog { width:min(900px,calc(100vw - 28px)); }
+.profit-dialog .ledger-scope { color:#243b5a!important; }
+.profit-ledger { overflow-x:auto;margin:20px 0 14px; }
+.profit-ledger table { width:100%;border-collapse:collapse;min-width:640px;font-size:12px; }
+.profit-ledger th,.profit-ledger td { text-align:right;padding:13px 10px;border-bottom:1px solid #e5e6eb;font-variant-numeric:tabular-nums;color:#243b5a; }
+.profit-ledger th { font-weight:500;font-size:11px;color:#697586;background:#f8fafc; }
+.profit-ledger th:first-child,.profit-ledger td:first-child { text-align:left; }
+.profit-ledger td small { display:block;font-size:10px;color:#86909c;padding-top:3px; }
+.profit-ledger td .plain-button { font-size:12px;color:#334f74;padding:0;text-align:left; }
+.profit-ledger tbody tr:hover { background:#f7f9fc; }
+.profit-ledger-summary { display:flex;flex-wrap:wrap;gap:12px 26px;font-size:11px;color:#697586;line-height:1.8; }
+.profit-ledger-summary b { color:#243b5a;font-weight:500; }
+.profit-dialog .agent-fact-row dd { color:#243b5a; }
+.business-answer .business-facts dd { color:#243b5a;font-size:12px; }
+.business-gap { padding:9px 11px;border-left:2px solid #c2cddd;background:#f7f9fc;font-size:11px;line-height:1.8;color:#4e5969;margin:0 0 12px; }
+.business-gap b { font-weight:500;color:#243b5a; }
+.business-reply-items { margin:0;padding-left:17px;font-size:13px;line-height:1.9; }
+.business-reply-items li+li { margin-top:7px; }
+@media(max-width:600px){.profit-metrics{gap:6px}.profit-metrics strong{font-size:14px}.profit-dialog .dialog-head{padding:16px}.profit-dialog #dialog-body{padding:16px}.profit-dialog .profit-ledger{margin-top:14px}}

@@ -1,0 +1,104 @@
+/* 延续财富中台精简表单风格；差异锚点是问题—方法—证据的可切换列表。 */
+:root { --policy-surface:#fff; --policy-canvas:#f0f2f5; --policy-primary:#165dff; --policy-text:#1d2129; --policy-muted:#667085; --policy-border:#e5e6eb; --policy-space:16px; }
+.policy-controls { margin:16px 0; background:var(--policy-surface); border-radius:8px; border:1px solid var(--policy-border); }
+.policy-axis { display:flex; gap:22px; padding:0 20px; border-bottom:1px solid var(--policy-border); }
+.policy-axis button { color:var(--policy-muted); min-height:45px; background:none; border:0; border-bottom:2px solid transparent; cursor:pointer; font-size:13px; }
+.policy-axis button.active { color:var(--policy-primary); border-bottom-color:var(--policy-primary); font-weight:600; }
+.policy-filters { display:flex; gap:14px; align-items:center; padding:15px 18px; flex-wrap:wrap; }
+.policy-filters label { display:flex; gap:9px; align-items:center; font-size:12px; color:var(--policy-muted); }
+.policy-filters select { padding:8px 27px 8px 10px; max-width:205px; height:36px; border:1px solid var(--policy-border); border-radius:4px; background:#fff; color:var(--policy-text); font-size:12px; }
+.policy-filters .search { margin-left:auto; width:235px; min-width:160px; height:36px; }
+.policy-layout { display:grid; grid-template-columns:minmax(530px,1fr) 370px; gap:var(--policy-space); align-items:start; }
+.policy-list { background:#fff; border:1px solid var(--policy-border); border-radius:8px; overflow:hidden; }
+.policy-scroll { overflow-x:auto; }
+.policy-table { width:100%; min-width:1190px; table-layout:fixed; border-collapse:collapse; text-align:left; }
+.policy-table th { padding:14px 18px; background:#f7f8fa; color:var(--policy-muted); font-size:12px; font-weight:500; }
+.policy-table th:nth-child(1) { width:17%; } .policy-table th:nth-child(2) { width:23%; } .policy-table th:nth-child(3) { width:18%; } .policy-table th:nth-child(4) { width:19%; } .policy-table th:nth-child(5) { width:10%; } .policy-table th:nth-child(6) { width:9%; } .policy-table th:nth-child(7) { width:4%; padding-left:8px; }
+.policy-table th:last-child { padding-right:8px; white-space:nowrap; }
+.policy-table th:nth-child(6) { padding-left:10px; padding-right:10px; }
+.policy-details p { overflow-wrap:anywhere; }
+.policy-table td { padding:20px 18px; border-top:1px solid var(--policy-border); vertical-align:top; font-size:12px; color:var(--policy-text); line-height:1.65; }
+.policy-table tr:hover td { background:#fbfcff; }
+.policy-table b { display:block; font-size:13px; font-weight:600; }
+.policy-table .policy-primary b { font-size:14px; }
+.policy-table small { display:block; font-size:11px; margin-top:6px; line-height:1.7; color:var(--policy-muted); }
+.policy-direction { display:inline-block; font-size:10px; color:var(--policy-primary); background:#edf3ff; padding:2px 6px; border-radius:3px; margin-bottom:8px; }
+.policy-table .policy-reason { font-size:12px; color:#475467; line-height:1.75; }
+.policy-sop-preview { margin:0; padding-left:18px; line-height:1.85; font-size:12px; }
+.policy-sop-preview li + li { margin-top:6px; }
+.policy-target { display:block; font-size:12px; line-height:1.65; color:var(--policy-text); margin-bottom:12px; }
+.policy-replay-label { color:#8492a6!important; }
+.policy-business-label { margin-left:6px; font-size:11px; color:var(--policy-muted); }
+.policy-business-case .business-source { margin:10px 0; border:1px solid var(--policy-border); border-radius:5px; }
+.business-source > summary { padding:10px 12px; cursor:pointer; font-size:12px; min-height:34px; }
+.business-quote { padding:0 12px 12px; font-size:12px; }
+.business-quote small { color:var(--policy-muted); font-size:11px; }
+.business-quote blockquote { margin:6px 0; padding-left:10px; border-left:2px solid #d5deef; white-space:pre-wrap; line-height:1.8; overflow-wrap:anywhere; }
+.policy-outcomes ol,.policy-reuse ol { padding-left:20px; margin:8px 0; font-size:12px; line-height:1.8; }
+.policy-outcomes li + li,.policy-reuse li + li { margin-top:5px; }
+.policy-outcomes h3:not(:first-child) { margin-top:16px; }
+.policy-alert { padding:10px 12px; border-left:3px solid #d98224; border-radius:4px; background:#fff7e8; color:#8a5200; font-size:12px; line-height:1.8; margin:10px 0; }
+.policy-branches { padding-left:20px; font-size:12px; line-height:1.8; margin:0; }
+.policy-branches li + li { margin-top:5px; }
+.policy-review-method { font-size:12px; line-height:1.85; padding-bottom:14px; }
+.policy-review-method h3 { font-size:14px; }
+.policy-review-method ol { padding-left:20px; }
+.policy-edit-field { display:flex; flex-direction:column; gap:7px; margin:14px 0; font-size:12px; }
+.policy-edit-field input,.policy-edit-field textarea { width:100%; padding:10px 12px; font:inherit; border:1px solid var(--policy-border); border-radius:5px; background:#fff; }
+.policy-edit-field textarea { min-height:95px; line-height:1.75; resize:vertical; }
+.policy-edit-field #policy-revision-method { min-height:145px; }
+.policy-table td:last-child { padding-left:8px; padding-right:8px; }
+.policy-detail-link { background:none; border:0; color:var(--policy-primary); min-height:34px; padding:4px 0; font:inherit; cursor:pointer; white-space:nowrap; }
+.policy-detail-link:focus-visible { outline:2px solid var(--policy-primary); outline-offset:4px; }
+.policy-table .badge { margin:0; }
+.policy-row { display:grid; grid-template-columns:minmax(190px,1.65fr) minmax(95px,1fr) minmax(112px,1fr) 68px; width:100%; align-items:center; gap:12px; text-align:left; padding:17px 14px; background:#fff; border:0; border-bottom:1px solid var(--policy-border); font-size:12px; color:var(--policy-text); cursor:pointer; }
+.policy-row.header { background:#f7f8fa; color:var(--policy-muted); font-size:12px; cursor:default; padding:12px 14px; }
+.policy-row.selected { background:#eef4ff; box-shadow:inset 3px 0 var(--policy-primary); }
+.policy-row:not(.header):hover { background:#f5f8ff; }
+.policy-row b { display:block; font-weight:600; font-size:12px; line-height:1.65; }
+.policy-primary b { font-size:14px; }
+.policy-row small { display:block; line-height:1.65; color:var(--policy-muted); font-size:11px; margin-top:4px; }
+.policy-question { color:#7a8698; }
+.advisor-name { overflow-wrap:anywhere; }
+.policy-basic b { color:#475467; }
+.policy-list-note { padding:14px 16px; font-size:11px; color:var(--policy-muted); line-height:1.75; }
+.policy-flow { padding:16px; border-top:1px solid var(--policy-border); background:#fbfcfe; }
+.policy-flow > b { font-size:12px; }
+.policy-flow ol { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; list-style:none; padding:0; margin:12px 0; }
+.policy-flow li { font-size:11px; line-height:1.6; color:var(--policy-muted); }
+.policy-flow li span { display:flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background:#edf3ff; color:var(--policy-primary); font-weight:600; margin-bottom:7px; }
+.policy-flow > small { font-size:10px; color:var(--policy-muted); line-height:1.6; }
+.policy-detail { display:block; min-width:0; background:#fff; padding:22px!important; }
+.policy-detail-heading > .badge { float:right; }
+.policy-detail h2 { font-size:19px!important; line-height:1.65; margin:10px 0 20px; }
+.policy-detail section { margin:0 0 19px; }
+.policy-detail h3 { font-size:13px; border-left:2px solid var(--policy-primary); padding-left:8px; margin:0 0 8px; }
+.policy-detail p { font-size:12px; line-height:1.85; margin:0; }
+.policy-detail .method-list { margin:0; }
+.policy-evidence { background:#f5f8fc; border-radius:6px; padding:14px; margin:16px 0; }
+.policy-evidence-head { display:flex; gap:12px; justify-content:space-between; align-items:center; font-size:12px; margin-bottom:12px; }
+.policy-evidence-head .badge { font-size:10px; font-weight:400; }
+.policy-evidence dl { margin:0; }
+.policy-evidence dl > div { display:grid; grid-template-columns:88px minmax(0,1fr); gap:8px; margin:10px 0; font-size:11px; line-height:1.7; }
+.policy-evidence dt { color:var(--policy-muted); }
+.policy-evidence dd { margin:0; overflow-wrap:anywhere; }
+.policy-evidence dd small { display:block; font-size:11px; color:var(--policy-muted); line-height:1.7; margin-top:4px; }
+.policy-evidence blockquote { margin:7px 0; border-left:2px solid #ccd8ec; padding-left:10px; color:#31536d; }
+.policy-goal { padding-top:11px; border-top:1px solid #e0e7f0; color:var(--policy-muted); font-size:11px!important; }
+.policy-details { margin:12px 0; border:1px solid var(--policy-border); border-radius:5px; }
+.policy-details > summary { cursor:pointer; font-size:12px; padding:12px; min-height:38px; }
+.policy-details > p,.policy-details > div,.policy-details > ol { margin:0 13px 13px; font-size:12px; line-height:1.85; }
+.policy-details > .button { margin:0 12px 12px; min-height:34px; }
+.policy-actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:16px; }
+.policy-actions .button { flex:1; font-size:12px; min-width:128px; min-height:36px; }
+.policy-actions .plain-button { font-size:11px; min-height:32px; }
+.policy-footnote { margin-top:10px!important; font-size:11px!important; color:var(--policy-muted); }
+.policy-feedback { background:#f5f8fc; padding:10px; }
+.policy-feedback p { margin:7px 0; overflow-wrap:anywhere; }
+.policy-feedback-input { width:100%; padding:12px; border:1px solid var(--policy-border); border-radius:5px; margin:10px 0 18px; min-height:130px; font:inherit; line-height:1.8; resize:vertical; }
+.review-card > .policy-evidence { margin-top:0; }
+.policy-ab .metric-number { font-size:30px; }
+.policy-ab .metric-number > span { font-size:14px; }
+@media(max-width:1300px) { .policy-layout { grid-template-columns:minmax(490px,1fr) 340px; } .policy-row { gap:9px; grid-template-columns:minmax(180px,1.5fr) minmax(90px,1fr) minmax(100px,1fr) 60px; padding:15px 12px; } }
+@media(max-width:1100px) { .policy-layout { grid-template-columns:1fr; } .policy-list { overflow-x:auto; } .policy-row { min-width:690px; } .policy-detail { width:100%; } .policy-filters .search { margin-left:0; flex:1; } }
+@media(max-width:760px) { .policy-filters { gap:10px; padding:12px; } .policy-filters label { flex:1 1 100%; justify-content:space-between; } .policy-filters select { max-width:none; width:68%; } .policy-filters .search { width:100%; flex-basis:100%; } .policy-flow ol { grid-template-columns:repeat(2,1fr); } .policy-detail { padding:16px!important; } }
