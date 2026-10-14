@@ -409,3 +409,7 @@ body[data-source-service="true"] #main-content .reference-shell details.sidebar-
 
 body[data-source-service="true"] #main-content .reference-shell .zone .business-detail { padding:0;margin:8px 0 0!important;background:transparent;border:0; }
 body[data-source-service="true"] #main-content .reference-shell .zone .business-detail>summary { padding:0;min-height:0;line-height:1.6; }
+
+/* Expanded disclosures keep one marker, matching their collapsed state. */
+body[data-source-service="true"] #main-content .reference-shell details.sidebar-detail[open]>summary,
+body[data-source-service="true"] #main-content .reference-shell .process>details[open]>summary { list-style:none; }
